@@ -1,1 +1,0 @@
-# micropython-deepcraft-model-interface
