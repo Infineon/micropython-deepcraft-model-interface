@@ -8,9 +8,9 @@ DEEPCRAFT_MODEL_LIB_DIR ?= $(dir $(lastword $(MAKEFILE_LIST)))
 # ── CM33 / MicroPython port (TOP is set by py/mkenv.mk) ──────────────────────
 ifneq ($(TOP),)
 
-INC   += -I$(DEEPCRAFT_MODEL_LIB_DIR)src
-SRC_C += $(DEEPCRAFT_MODEL_LIB_DIR)src/deepcraft_engine.c
-SRC_C += $(DEEPCRAFT_MODEL_LIB_DIR)src/deepcraft_interface.c
+INC   += -I$(DEEPCRAFT_MODEL_LIB_DIR)deepcraft
+SRC_C += $(DEEPCRAFT_MODEL_LIB_DIR)deepcraft/deepcraft_engine.c
+SRC_C += $(DEEPCRAFT_MODEL_LIB_DIR)deepcraft/deepcraft_interface.c
 
 # ── CM55 / ModusToolbox (CORE_NAME == CM55) ───────────────────────────────────
 # Only the shared header (deepcraft_interface.h) is needed from this library.
@@ -18,6 +18,6 @@ SRC_C += $(DEEPCRAFT_MODEL_LIB_DIR)src/deepcraft_interface.c
 # (proj_cm55/deepcraft_ipc_cm55.h/.c).
 else ifeq ($(CORE_NAME),CM55)
 
-INCLUDES += $(DEEPCRAFT_MODEL_LIB_DIR)src
+INCLUDES += $(DEEPCRAFT_MODEL_LIB_DIR)deepcraft
 
 endif
