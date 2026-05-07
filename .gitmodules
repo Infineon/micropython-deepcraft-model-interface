@@ -1,4 +1,0 @@
-[submodule "cm55/mtb-example-psoc-edge-voice-assistant-deploy-mpy"]
-	path = cm55/mtb-example-psoc-edge-voice-assistant-deploy-mpy
-	url = https://github.com/Infineon/mtb-example-psoc-edge-voice-assistant-deploy-mpy
-	branch = integrate_wrapper_layer
