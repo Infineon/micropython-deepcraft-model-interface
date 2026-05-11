@@ -1,0 +1,41 @@
+# ModusToolbox build output
+build/
+Debug/
+Release/
+*_build/
+
+# Compiled object files and libraries
+*.o
+*.a
+*.elf
+*.hex
+*.map
+*.bin
+
+# Ninja build artefacts
+.ninja_*
+
+# ModusToolbox library deps (pulled by `make getlibs`)
+libs/
+
+# ModusToolbox generated
+GeneratedSource/
+*.lock
+.mtbqueryapi
+
+# IDE files
+.vscode/
+*.code-workspace
+.metadata/
+.settings/
+.cproject
+.project
+.mtbLaunchConfigs/
+openocd.tcl
+
+# macOS
+.DS_Store
+
+# Python
+__pycache__/
+*.pyc
