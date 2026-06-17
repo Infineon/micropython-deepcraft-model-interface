@@ -65,20 +65,19 @@ static void (*s_c_receive_cb)(uint8_t cmd, uint32_t value) = NULL;
 /*
  * mpy_adapter_receive_handler — MicroPython-callable C function registered with the transport.
  *
- * The transport calls registered callables as: fn(cmd, value, client_id).
- * This shim forwards cmd and value to the deepcraft_engine.c dispatcher.
+ * The transport calls registered callables as: fn(client) — a single client
+ * object exposing the message via .cmd / .value / .id attributes.  This shim
+ * reads cmd and value and forwards them to the deepcraft_engine.c dispatcher.
  */
-static mp_obj_t mpy_adapter_receive_handler(size_t n_args, const mp_obj_t *args) {
-    (void)n_args;
-    uint8_t  cmd   = (uint8_t)mp_obj_get_int(args[0]);
-    uint32_t value = (uint32_t)mp_obj_get_int(args[1]);
-    /* args[2] = client_id, consumed by the transport layer — ignored here */
+static mp_obj_t mpy_adapter_receive_handler(mp_obj_t client_in) {
+    uint8_t  cmd   = (uint8_t)mp_obj_get_int(mp_load_attr(client_in, MP_QSTR_cmd));
+    uint32_t value = (uint32_t)mp_obj_get_int(mp_load_attr(client_in, MP_QSTR_value));
     if (s_c_receive_cb != NULL) {
         s_c_receive_cb(cmd, value);
     }
     return mp_const_none;
 }
-static MP_DEFINE_CONST_FUN_OBJ_VAR_BETWEEN(mpy_receive_shim_obj, 3, 3,
+static MP_DEFINE_CONST_FUN_OBJ_1(mpy_receive_shim_obj,
     mpy_adapter_receive_handler);
 
 /* vtable.send — calls transport.send(cmd, value, target_client_id) */
