@@ -135,7 +135,7 @@ static void mpy_model_event_cb(va_model_events_t event, uint32_t value) {
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════
- * DEEPCRAFTModel MicroPython object
+ * DeepcraftModel MicroPython object
  * ═══════════════════════════════════════════════════════════════════════════ */
 typedef struct {
     mp_obj_base_t       base;
@@ -149,7 +149,7 @@ typedef struct {
 static deepcraft_model_mpy_obj_t *s_mpy_instance = NULL;
 MP_REGISTER_ROOT_POINTER(mp_obj_t deepcraft_mpy_instance);
 
-/* ── Constructor: DEEPCRAFTModel(interface, *, model=MODEL_VA, ...) ──────── */
+/* ── Constructor: DeepcraftModel(interface, *, model=MODEL_VA, ...) ──────── */
 static mp_obj_t deepcraft_model_mpy_make_new(const mp_obj_type_t *type,
     size_t n_args, size_t n_kw, const mp_obj_t *all_args) {
     enum {
@@ -174,7 +174,7 @@ static mp_obj_t deepcraft_model_mpy_make_new(const mp_obj_type_t *type,
 
     if (s_mpy_instance != NULL) {
         mp_raise_msg(&mp_type_RuntimeError,
-            MP_ERROR_TEXT("Only one DEEPCRAFTModel instance is allowed"));
+            MP_ERROR_TEXT("Only one DeepcraftModel instance is allowed"));
     }
 
     deepcraft_model_mpy_obj_t *self = mp_obj_malloc(deepcraft_model_mpy_obj_t, type);
@@ -302,7 +302,7 @@ static MP_DEFINE_CONST_DICT(deepcraft_model_locals_dict, deepcraft_model_locals_
 
 MP_DEFINE_CONST_OBJ_TYPE(
     deepcraft_model_type,
-    MP_QSTR_DEEPCRAFTModel,
+    MP_QSTR_DeepcraftModel,
     MP_TYPE_FLAG_NONE,
     make_new, deepcraft_model_mpy_make_new,
     locals_dict, &deepcraft_model_locals_dict);
@@ -313,7 +313,7 @@ MP_DEFINE_CONST_OBJ_TYPE(
  * ═══════════════════════════════════════════════════════════════════════════ */
 static const mp_rom_map_elem_t deepcraft_model_module_globals_table[] = {
     { MP_ROM_QSTR(MP_QSTR___name__),       MP_ROM_QSTR(MP_QSTR_deepcraft_model) },
-    { MP_ROM_QSTR(MP_QSTR_DEEPCRAFTModel), MP_ROM_PTR(&deepcraft_model_type)    },
+    { MP_ROM_QSTR(MP_QSTR_DeepcraftModel), MP_ROM_PTR(&deepcraft_model_type)    },
 };
 static MP_DEFINE_CONST_DICT(deepcraft_model_module_globals,
     deepcraft_model_module_globals_table);

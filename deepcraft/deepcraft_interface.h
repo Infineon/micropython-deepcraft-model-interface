@@ -46,7 +46,7 @@ typedef struct {
  * @brief VA model event codes, decoupled from wire bytes.
  *
  * These values are passed to the user event callback registered via
- * deepcraft_engine_set_event_cb() / DEEPCRAFTModel.set_event_cb().
+ * deepcraft_engine_set_event_cb() / DeepcraftModel.set_event_cb().
  */
 typedef enum {
     VA_EVENT_READY             = 0, /**< VA initialised and ready to listen        */
