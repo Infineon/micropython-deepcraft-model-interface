@@ -22,7 +22,7 @@ Voice Assistant (VA) model to MicroPython on multi-core PSOC™ Edge devices
 | [deepcraft/deepcraft_interface.h](deepcraft/deepcraft_interface.h) | Shared API: types, wire commands, transport vtable, engine declarations. |
 | [deepcraft/deepcraft_engine.c](deepcraft/deepcraft_engine.c) | Transport-agnostic model state machine and event dispatch. |
 | [deepcraft/deepcraft_interface.c](deepcraft/deepcraft_interface.c) | MicroPython `deepcraft_model` C module; adapts a Python transport to the engine. |
-| [deepcraft_interface.mk](deepcraft_interface.mk) | Build fragment for the CM33 MicroPython port and CM55 ModusToolbox™ project. |
+| [deepcraft_interface.mk](deepcraft_interface.mk) | Build fragment for the including projects. |
 
 ## Build integration
 
