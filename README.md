@@ -1,7 +1,7 @@
 # DEEPCRAFT™ Model Interface
 
 A small, transport-agnostic interface layer that exposes Infineon's DEEPCRAFT™
-Voice Assistant (VA) model to MicroPython on multi-core PSoC™ Edge devices
+Voice Assistant (VA) model to MicroPython on multi-core PSOC™ Edge devices
 (with CM33 running MicroPython, CM55 running the model).
 
 ## What it does
